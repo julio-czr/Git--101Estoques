@@ -1,0 +1,140 @@
+/* ====== Sidebar Base ====== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* ====== Mobile ====== */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* ====== Conteúdo Interno ====== */
+.inner {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+/* ====== Perfil ====== */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 2px solid #1976d2;
+}
+
+.name {
+  font-size: 1rem;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+/* ====== Navegação ====== */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navBtn {
+  background: #fafafac1;
+  border: none;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  box-shadow: #5f5f5fa6 1px 2px 3px 0px;
+}
+
+.navBtn:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.exit {
+  margin-top: auto;
+  color: #d32f2f;
+}
+
+.exit:hover {
+  background-color: #ffebee;
+}
+
+/* ====== Botão Toggle ====== */
+.toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 1.2rem;
+  transition: background-color 0.2s;
+}
+
+.toggle:hover {
+  background-color: #1565c0;
+}
+
+/* ====== Fundo escuro (overlay) ====== */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ====== Responsividade ====== */
+@media (min-width: 769px) {
+  .toggle {
+    display: none;
+  }
+
+  .backdrop {
+    display: none;
+  }
+}

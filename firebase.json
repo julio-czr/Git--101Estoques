@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "microfrontend/dist",
+    "predeploy": ["npm --prefix microfrontend run build"],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "/api/alugueis/**", "function": "alugueis" },
+      { "source": "/api/estoques/**", "function": "estoques" },
+      { "source": "/api/bff/**", "function": "bff" },
+      { "source": "**", "destination": "/index.html" }
+    ]
+  },
+  "functions": {
+    "source": "functions"
+  }
+}

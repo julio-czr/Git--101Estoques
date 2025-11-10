@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: BFF 101estoques
+  version: 1.0.0
+  description: Backend For Frontend para orquestração dos microserviços do 101estoques
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /api/estoques:
+    get:
+      summary: Lista todos os estoques
+      responses:
+        '200':
+          description: Lista de estoques
+    post:
+      summary: Cria um novo estoque via evento
+      responses:
+        '202':
+          description: Solicitação aceita
+  
+  /api/estoques/{id}:
+    get:
+      summary: Retorna um estoque específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalhes do estoque
+    put:
+      summary: Atualiza um estoque
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Estoque atualizado
+    delete:
+      summary: Remove um estoque
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Estoque removido
+
+  /api/alugueis:
+    get:
+      summary: Lista todos os aluguéis
+      responses:
+        '200':
+          description: Lista de aluguéis
+    post:
+      summary: Cria um novo aluguel
+      responses:
+        '201':
+          description: Aluguel criado
+
+  /api/alugueis/{id}:
+    get:
+      summary: Retorna um aluguel específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalhes do aluguel
+    put:
+      summary: Atualiza um aluguel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Aluguel atualizado
+    delete:
+      summary: Remove um aluguel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Aluguel removido
+
+  /api/agregado/estoques-alugueis:
+    get:
+      summary: Retorna dados agregados de estoques e aluguéis
+      responses:
+        '200':
+          description: Dados agregados
