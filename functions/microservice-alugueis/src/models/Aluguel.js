@@ -1,48 +1,48 @@
-const { DataTypes } = require('sequelize');
-const { sequelize: sequelizeInstance } = require('../config/database');
+const {DataTypes} = require("sequelize");
+const {sequelize: sequelizeInstance} = require("../config/database");
 
 const sequelize = sequelizeInstance;
 
-const Aluguel = sequelize.define('Aluguel', {
+const Aluguel = sequelize.define("Aluguel", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   estoque_id: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   cliente_nome: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   cliente_email: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isEmail: true
-    }
+      isEmail: true,
+    },
   },
   data_inicio: {
     type: DataTypes.DATEONLY,
-    allowNull: false
+    allowNull: false,
   },
   data_fim: {
     type: DataTypes.DATEONLY,
-    allowNull: true
+    allowNull: true,
   },
   valor_mensal: {
     type: DataTypes.FLOAT,
-    allowNull: false
+    allowNull: false,
   },
   status: {
-    type: DataTypes.ENUM('ativo', 'finalizado', 'cancelado'),
-    defaultValue: 'ativo'
-  }
+    type: DataTypes.ENUM("ativo", "finalizado", "cancelado"),
+    defaultValue: "ativo",
+  },
 }, {
   timestamps: true,
-  tableName: 'alugueis'
+  tableName: "alugueis",
 });
 
 module.exports = Aluguel;

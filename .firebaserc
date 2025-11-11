@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "cloud-e7ef9"
-  }
+    "default": "cloud-e7ef9",
+    "101estoques": "estoques-90341",
+    "101functions": "cloud-e7ef9"
+  },
+  "targets": {},
+  "etags": {}
 }

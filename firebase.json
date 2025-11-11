@@ -4,13 +4,27 @@
     "predeploy": ["npm --prefix microfrontend run build"],
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
-      { "source": "/api/alugueis/**", "function": "alugueis" },
-      { "source": "/api/estoques/**", "function": "estoques" },
-      { "source": "/api/bff/**", "function": "bff" },
+      { "source": "/api/**", "function": "bff" },
       { "source": "**", "destination": "/index.html" }
     ]
   },
-  "functions": {
-    "source": "functions"
-  }
+  "functions": [
+    {
+      "codebase": "default",
+      "source": "functions"
+    },
+    {
+      "source": "101functions",
+      "codebase": "101functions",
+      "disallowLegacyRuntimeConfig": true,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": []
+    }
+  ]
 }
